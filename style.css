@@ -99,8 +99,6 @@ section {
 .service-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
-}
-
 .partners-section {
   text-align: center;
   padding: 50px 20px;
@@ -124,21 +122,44 @@ section {
 
 .partners-track {
   display: flex;
+  align-items: center;
   width: max-content;
-  gap: 60px;
-  animation: scrollPartners 20s linear infinite;
+  gap: 40px;
+  animation: scrollPartners 25s linear infinite;
 }
 
-.partners-track span {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: white;
-  white-space: nowrap;
-  padding: 12px 24px;
+.partner-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 180px;
+  height: 90px;
+  padding: 15px 25px;
   border: 1px solid #00ff9d;
-  border-radius: 30px;
+  border-radius: 20px;
   background: #0b0b0b;
   box-shadow: 0 0 10px rgba(0, 255, 157, 0.15);
+}
+
+.partner-logo img {
+  max-height: 45px;
+  max-width: 140px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.partner-logo img[alt*="Microsoft"] {
+  filter: none;
+}
+
+.partner-logo img[alt*="Dell"] {
+  filter: none;
+}
+
+.partner-logo img[alt*="Okta"] {
+  filter: none;
 }
 
 @keyframes scrollPartners {
@@ -148,6 +169,10 @@ section {
   100% {
     transform: translateX(-50%);
   }
+}
+
+.partners-track:hover {
+  animation-play-state: paused;
 }
 
 /* Footer styling */
