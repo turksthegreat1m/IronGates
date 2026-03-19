@@ -101,6 +101,55 @@ section {
     box-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
 }
 
+.partners-section {
+  text-align: center;
+  padding: 50px 20px;
+  background: #050505;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+  overflow: hidden;
+}
+
+.partners-section h2 {
+  color: #00ff9d;
+  margin-bottom: 25px;
+  font-size: 2rem;
+}
+
+.partners-slider {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.partners-track {
+  display: flex;
+  width: max-content;
+  gap: 60px;
+  animation: scrollPartners 20s linear infinite;
+}
+
+.partners-track span {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  white-space: nowrap;
+  padding: 12px 24px;
+  border: 1px solid #00ff9d;
+  border-radius: 30px;
+  background: #0b0b0b;
+  box-shadow: 0 0 10px rgba(0, 255, 157, 0.15);
+}
+
+@keyframes scrollPartners {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 /* Footer styling */
 footer {
     text-align: center;
