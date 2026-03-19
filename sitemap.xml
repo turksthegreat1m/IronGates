@@ -52,4 +52,18 @@
 <priority>0.7</priority>
 </url>
 
+<url>
+<loc>https://irongateai.org/blog/cloud-security-misconfigurations.html</loc>
+<priority>0.7</priority>
+</url>
+
+<url>
+<loc>https://irongateai.org/blog/phishing-attack-prevention.html</loc>
+<priority>0.7</priority>
+</url>
+
+<url>
+<loc>https://irongateai.org/blog/incident-response-planning.html</loc>
+<priority>0.7</priority>
+</url>
 </urlset>
