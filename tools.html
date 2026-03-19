@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IronGate AI | Security Tools</title>
+  <meta name="description" content="Explore IronGate AI cybersecurity and AI security tools including risk assessments, password strength checks, and consultation request forms." />
+  <meta name="keywords" content="cybersecurity tools, AI risk assessment, password strength checker, security consultation, cybersecurity assessment" />
+  <meta name="author" content="IronGate AI" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0b0b;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #000;
+      border-bottom: 2px solid #00ff9d;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      color: #00ff9d;
+    }
+
+    .brand p {
+      margin: 8px 0 0;
+      color: #cccccc;
+    }
+
+    nav {
+      margin-top: 15px;
+    }
+
+    nav a {
+      color: #00ff9d;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+
+    .hero p {
+      color: #cccccc;
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.05rem;
+    }
+
+    .tools-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .tool-card {
+      background: #121212;
+      border: 1px solid #1f1f1f;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 0 15px rgba(0, 255, 157, 0.08);
+    }
+
+    .tool-card h3 {
+      margin-top: 0;
+      color: #00ff9d;
+      font-size: 1.35rem;
+    }
+
+    .tool-card p {
+      color: #d0d0d0;
+    }
+
+    .tool-card label {
+      display: block;
+      margin-top: 14px;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .tool-card input,
+    .tool-card select,
+    .tool-card textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #333;
+      background: #0d0d0d;
+      color: #ffffff;
+      font-size: 0.95rem;
+    }
+
+    .tool-card textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .tool-card button {
+      margin-top: 18px;
+      background: #00ff9d;
+      color: #000000;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 0.95rem;
+      transition: 0.2s ease;
+    }
+
+    .tool-card button:hover {
+      background: #00d884;
+    }
+
+    .result-box {
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 8px;
+      background: #0f1a16;
+      border: 1px solid #1c4d3c;
+      color: #dfffee;
+      white-space: pre-line;
+    }
+
+    .strength-bar-wrap {
+      margin-top: 12px;
+      background: #1a1a1a;
+      border-radius: 999px;
+      overflow: hidden;
+      height: 12px;
+      border: 1px solid #333;
+    }
+
+    .strength-bar {
+      height: 100%;
+      width: 0%;
+      transition: width 0.3s ease;
+      background: #00ff9d;
+    }
+
+    .cta {
+      max-width: 1000px;
+      margin: 40px auto 60px;
+      padding: 0 20px;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, #101010, #171717);
+      border: 1px solid #2a2a2a;
+      border-left: 4px solid #00ff9d;
+      padding: 28px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .cta-box h3 {
+      margin-top: 0;
+      color: #00ff9d;
+      font-size: 1.6rem;
+    }
+
+    .cta-box p {
+      color: #cccccc;
+      max-width: 700px;
+      margin: 10px auto 20px;
+    }
+
+    .cta-box a {
+      display: inline-block;
+      background: #00ff9d;
+      color: #000;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      border-top: 1px solid #222;
+      color: #999;
+      background: #050505;
+    }
+
+    .small-note {
+      font-size: 0.85rem;
+      color: #999;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <h1>IronGate AI</h1>
+      <p>Cybersecurity Consulting & AI Security Services</p>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="tools.html">Tools</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Security Tools & Readiness Assessments</h2>
+    <p>
+      Use IronGate AI's interactive tools to evaluate cybersecurity posture, review AI risk exposure,
+      test password strength, and request a tailored consultation for your business.
+    </p>
+  </section>
+
+  <section class="tools-container">
+
+    <!-- Cybersecurity Risk Assessment -->
+    <div class="tool-card">
+      <h3>Cybersecurity Risk Assessment</h3>
+      <p>Answer a few questions to get a quick estimate of your organization's cybersecurity risk level.</p>
+
+      <label for="mfa">Do you use multi-factor authentication?</label>
+      <select id="mfa">
+        <option value="0">Yes</option>
+        <option value="2">No</option>
+      </select>
+
+      <label for="backup">Do you maintain secure offline or immutable backups?</label>
+      <select id="backup">
+        <option value="0">Yes</option>
+        <option value="2">No</option>
+      </select>
+
+      <label for="training">Do employees receive security awareness training?</label>
+      <select id="training">
+        <option value="0">Yes</option>
+        <option value="2">No</option>
+      </select>
+
+      <label for="endpoint">Do you use endpoint protection or EDR?</label>
+      <select id="endpoint">
+        <option value="0">Yes</option>
+        <option value="2">No</option>
+      </select>
+
+      <label for="irplan">Do you have an incident response plan?</label>
+      <select id="irplan">
+        <option value="0">Yes</option>
+        <option value="2">No</option>
+      </select>
+
+      <button onclick="calculateCyberRisk()">Calculate Risk</button>
+      <div id="cyberRiskResult" class="result-box" style="display:none;"></div>
+    </div>
+
+    <!-- AI Readiness / Risk Tool -->
+    <div class="tool-card">
+      <h3>AI Readiness & AI Risk Tool</h3>
+      <p>Evaluate whether your organization is using AI safely and responsibly.</p>
+
+      <label for="aiUsage">Does your business currently use AI tools?</label>
+      <select id="aiUsage">
+        <option value="2">Yes</option>
+        <option value="0">No</option>
+      </select>
+
+      <label for="aiPolicy">Do you have an internal AI use policy?</label>
+      <select id="aiPolicy">
+        <option value="0">Yes</option>
+        <option value="2">No</option>
+      </select>
+
+      <label for="sensitiveData">Are employees prevented from entering sensitive data into public AI tools?</label>
+      <select id="sensitiveData">
+        <option value="0">Yes</option>
+        <option value="2">No</option>
+      </select>
+
+      <label for="aiReview">Are AI outputs reviewed by humans before business use?</label>
+      <select id="aiReview">
+        <option value="0">Yes</option>
+        <option value="2">No</option>
+      </select>
+
+      <label for="vendorReview">Do you review AI vendors for privacy and security risks?</label>
+      <select id="vendorReview">
+        <option value="0">Yes</option>
+        <option value="2">No</option>
+      </select>
+
+      <button onclick="calculateAIRisk()">Check AI Risk</button>
+      <div id="aiRiskResult" class="result-box" style="display:none;"></div>
+    </div>
+
+    <!-- Password Strength Checker -->
+    <div class="tool-card">
+      <h3>Password Strength Checker</h3>
+      <p>Test the strength of a password locally in your browser. Nothing is sent anywhere.</p>
+
+      <label for="passwordInput">Enter a password</label>
+      <input type="password" id="passwordInput" placeholder="Type password here" oninput="checkPasswordStrength()" />
+
+      <div class="strength-bar-wrap">
+        <div class="strength-bar" id="strengthBar"></div>
+      </div>
+
+      <div id="passwordResult" class="result-box" style="display:none;"></div>
+      <p class="small-note">Tip: Use at least 14 characters with a mix of uppercase, lowercase, numbers, and symbols.</p>
+    </div>
+
+    <!-- Consultation Form -->
+    <div class="tool-card">
+      <h3>Security Consultation Request</h3>
+      <p>Collect leads directly from your website. This front-end version can be connected to Formspree, Netlify Forms, or your own backend later.</p>
+
+      <form id="consultationForm">
+        <label for="name">Name</label>
+        <input type="text" id="name" required />
+
+        <label for="company">Company</label>
+        <input type="text" id="company" />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" required />
+
+        <label for="service">Service Needed</label>
+        <select id="service" required>
+          <option value="">Select a service</option>
+          <option>Cybersecurity Assessment</option>
+          <option>AI Risk Assessment</option>
+          <option>Incident Response Planning</option>
+          <option>Penetration Testing</option>
+          <option>Virtual CISO Services</option>
+          <option>General Consultation</option>
+        </select>
+
+        <label for="message">Project Details</label>
+        <textarea id="message" placeholder="Tell us about your security needs, concerns, or goals."></textarea>
+
+        <button type="submit">Submit Request</button>
+      </form>
+
+      <div id="consultationResult" class="result-box" style="display:none;"></div>
+    </div>
+
+  </section>
+
+  <section class="cta">
+    <div class="cta-box">
+      <h3>Need a Full Security Review?</h3>
+      <p>
+        These tools provide a quick starting point. For a deeper review of your cybersecurity posture,
+        AI risk exposure, or compliance gaps, contact IronGate AI for a tailored assessment.
+      </p>
+      <a href="contact.html">Request a Consultation</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 IronGate AI. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function calculateCyberRisk() {
+      const mfa = parseInt(document.getElementById("mfa").value);
+      const backup = parseInt(document.getElementById("backup").value);
+      const training = parseInt(document.getElementById("training").value);
+      const endpoint = parseInt(document.getElementById("endpoint").value);
+      const irplan = parseInt(document.getElementById("irplan").value);
+
+      const score = mfa + backup + training + endpoint + irplan;
+      const resultBox = document.getElementById("cyberRiskResult");
+      let resultText = "";
+
+      if (score <= 2) {
+        resultText = "Risk Level: Low\n\nYour organization appears to have key foundational protections in place. Continue reviewing controls regularly and test your preparedness.";
+      } else if (score <= 6) {
+        resultText = "Risk Level: Moderate\n\nYour organization has some protections in place, but there are notable gaps that could increase business risk. A targeted security review is recommended.";
+      } else {
+        resultText = "Risk Level: High\n\nYour organization may be exposed to elevated cyber risk due to multiple missing safeguards. Prioritize MFA, backups, employee training, endpoint security, and incident response planning.";
+      }
+
+      resultBox.style.display = "block";
+      resultBox.textContent = resultText;
+    }
+
+    function calculateAIRisk() {
+      const aiUsage = parseInt(document.getElementById("aiUsage").value);
+      const aiPolicy = parseInt(document.getElementById("aiPolicy").value);
+      const sensitiveData = parseInt(document.getElementById("sensitiveData").value);
+      const aiReview = parseInt(document.getElementById("aiReview").value);
+      const vendorReview = parseInt(document.getElementById("vendorReview").value);
+
+      const score = aiUsage + aiPolicy + sensitiveData + aiReview + vendorReview;
+      const resultBox = document.getElementById("aiRiskResult");
+      let resultText = "";
+
+      if (score <= 2) {
+        resultText = "AI Risk Level: Low\n\nYour organization appears to be taking sensible precautions around AI adoption. Continue policy reviews, vendor due diligence, and governance oversight.";
+      } else if (score <= 6) {
+        resultText = "AI Risk Level: Moderate\n\nYour organization may benefit from stronger AI governance, data handling controls, and internal review processes.";
+      } else {
+        resultText = "AI Risk Level: High\n\nYour organization may face elevated AI-related risks involving privacy, security, compliance, and output reliability. A formal AI risk assessment is strongly recommended.";
+      }
+
+      resultBox.style.display = "block";
+      resultBox.textContent = resultText;
+    }
+
+    function checkPasswordStrength() {
+      const password = document.getElementById("passwordInput").value;
+      const resultBox = document.getElementById("passwordResult");
+      const strengthBar = document.getElementById("strengthBar");
+
+      let score = 0;
+      let feedback = [];
+
+      if (password.length >= 8) score++;
+      else feedback.push("Use at least 8 characters.");
+
+      if (password.length >= 14) score++;
+
+      if (/[A-Z]/.test(password)) score++;
+      else feedback.push("Add an uppercase letter.");
+
+      if (/[a-z]/.test(password)) score++;
+      else feedback.push("Add a lowercase letter.");
+
+      if (/[0-9]/.test(password)) score++;
+      else feedback.push("Add a number.");
+
+      if (/[^A-Za-z0-9]/.test(password)) score++;
+      else feedback.push("Add a symbol.");
+
+      let strengthText = "";
+      let width = 0;
+
+      if (password.length === 0) {
+        resultBox.style.display = "none";
+        strengthBar.style.width = "0%";
+        return;
+      }
+
+      if (score <= 2) {
+        strengthText = "Strength: Weak";
+        width = 25;
+      } else if (score <= 4) {
+        strengthText = "Strength: Fair";
+        width = 50;
+      } else if (score <= 5) {
+        strengthText = "Strength: Good";
+        width = 75;
+      } else {
+        strengthText = "Strength: Strong";
+        width = 100;
+      }
+
+      resultBox.style.display = "block";
+      resultBox.textContent = strengthText + "\n\n" + (feedback.length ? feedback.join(" ") : "This password meets strong basic complexity guidelines.");
+      strengthBar.style.width = width + "%";
+    }
+
+    document.getElementById("consultationForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const company = document.getElementById("company").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const service = document.getElementById("service").value;
+      const message = document.getElementById("message").value.trim();
+      const resultBox = document.getElementById("consultationResult");
+
+      resultBox.style.display = "block";
+      resultBox.textContent =
+        "Thank you, " + name + ". Your request has been captured on this page.\n\n" +
+        "Selected Service: " + service + "\n" +
+        "Company: " + (company || "Not provided") + "\n" +
+        "Email: " + email + "\n\n" +
+        "Next step: connect this form to Formspree, Netlify Forms, or your backend so submissions are emailed directly to you.";
+      
+      document.getElementById("consultationForm").reset();
+    });
+  </script>
+
+</body>
+</html>
