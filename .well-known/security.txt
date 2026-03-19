@@ -1,0 +1,6 @@
+Contact: mailto:support@irongateai.org
+Expires: 2027-01-01T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://irongateai.org/.well-known/security.txt
+Policy: https://irongateai.org/security-policy
+Hiring: https://irongateai.org/careers
