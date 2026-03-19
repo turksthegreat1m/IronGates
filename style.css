@@ -99,9 +99,10 @@ section {
 .service-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
+}
 .partners-section {
   text-align: center;
-  padding: 50px 20px;
+  padding: 60px 20px;
   background: #050505;
   border-top: 1px solid #222;
   border-bottom: 1px solid #222;
@@ -110,56 +111,74 @@ section {
 
 .partners-section h2 {
   color: #00ff9d;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   font-size: 2rem;
 }
 
 .partners-slider {
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
   width: 100%;
+}
+
+.partners-slider::before,
+.partners-slider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.partners-slider::before {
+  left: 0;
+  background: linear-gradient(to right, #050505, transparent);
+}
+
+.partners-slider::after {
+  right: 0;
+  background: linear-gradient(to left, #050505, transparent);
 }
 
 .partners-track {
   display: flex;
   align-items: center;
+  gap: 35px;
   width: max-content;
-  gap: 40px;
-  animation: scrollPartners 25s linear infinite;
+  animation: scrollPartners 28s linear infinite;
 }
 
 .partner-logo {
+  min-width: 180px;
+  height: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 180px;
-  height: 90px;
-  padding: 15px 25px;
-  border: 1px solid #00ff9d;
-  border-radius: 20px;
   background: #0b0b0b;
-  box-shadow: 0 0 10px rgba(0, 255, 157, 0.15);
+  border: 1px solid #1f1f1f;
+  border-radius: 18px;
+  padding: 18px 24px;
+  box-shadow: 0 0 12px rgba(0, 255, 157, 0.08);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.partner-logo:hover {
+  transform: translateY(-3px);
+  border-color: #00ff9d;
 }
 
 .partner-logo img {
-  max-height: 45px;
-  max-width: 140px;
-  width: auto;
-  height: auto;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
   filter: brightness(0) invert(1);
+  opacity: 0.9;
 }
 
-.partner-logo img[alt*="Microsoft"] {
-  filter: none;
-}
-
-.partner-logo img[alt*="Dell"] {
-  filter: none;
-}
-
-.partner-logo img[alt*="Okta"] {
-  filter: none;
+.partners-track:hover {
+  animation-play-state: paused;
 }
 
 @keyframes scrollPartners {
@@ -169,12 +188,6 @@ section {
   100% {
     transform: translateX(-50%);
   }
-}
-
-.partners-track:hover {
-  animation-play-state: paused;
-}
-
 /* Footer styling */
 footer {
     text-align: center;
